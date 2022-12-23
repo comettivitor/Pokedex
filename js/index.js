@@ -2,13 +2,7 @@ const pokemonContainer = document.querySelector('.container');
 const container = document.querySelector('.container');
 
 const fetchPokemons = async () => {
-    for (let i = 1; i <= 151; i++) {
-        await getPokemon(i);
-    }
-}
-
-const fetchPokemons2 = async () => {
-    for (let i = 152; i <= 251; i++) {
+    for (let i = 1; i <= 386; i++) {
         await getPokemon(i);
     }
 }
@@ -20,11 +14,7 @@ const getPokemon = async id => {
     createCard(pokemon);
 }
 
-const atualizaPagina = () =>{
-    if(container.parentNode){
-        container.parentNode.removeChild(container)
-    }
-}
+fetchPokemons();
 
 function createCard(pokemon) {
     const pokemonElement = document.createElement("div");
@@ -34,7 +24,7 @@ function createCard(pokemon) {
     const nome = pokemon.name.toUpperCase();
     const tipo = pokemon.types
         .map((type) => type.type.name)
-        .join(' ');
+        .join(' - ');
 
     const pokeInnerHTML = `
     <div class="pokemon-container">
